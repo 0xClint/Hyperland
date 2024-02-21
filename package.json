@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@lighthouse-web3/sdk": "^0.3.0",
     "@mysten/dapp-kit": "^0.5.0",
     "@mysten/sui.js": "^0.44.0",
     "@react-three/cannon": "3.1.2",
@@ -26,7 +27,6 @@
     "react-scripts": "5.0.1",
     "three": "0.127.0",
     "web-vitals": "^2.1.0",
-    "web3.storage": "^4.5.5",
     "zustand": "3.0.3"
   },
   "scripts": {

@@ -14,17 +14,19 @@ const ConnectWallet = () => {
   const wallets = useWallets();
   const accounts = useAccounts();
   const { mutate: connect } = useConnectWallet();
-  console.log("account : " + accounts);
 
   useEffect(() => {
     const isSuiWallet = () => {
-      if (!wallets.length) {
+      console.log(wallets);
+      if (wallets.length == 0) {
         console.log("no Wallet!");
         setSuiInstall(false);
+      } else {
+        setSuiInstall(true);
       }
     };
     isSuiWallet();
-  }, []);
+  }, [wallets]);
 
   return (
     <div className="flex justify-center  items-center">

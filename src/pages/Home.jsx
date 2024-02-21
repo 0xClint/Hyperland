@@ -6,8 +6,8 @@ import { useStore } from "../hooks/useStore";
 import { TransactionBlock } from "@mysten/sui.js/transactions";
 import { useSignAndExecuteTransactionBlock } from "@mysten/dapp-kit";
 import { CONTRACT_ADDRESS } from "../utils/constants";
-import { makeFileObjects, uploadWeb3 } from "../utils/web3Storage";
 import { getFullnodeUrl, SuiClient } from "@mysten/sui.js/client";
+import { makeFileObjects, uploadFile } from "../utils/lightouse";
 
 const Home = () => {
   const [loader, setLoader] = useState(false);
@@ -35,9 +35,12 @@ const Home = () => {
   const createWorld = async () => {
     setLoader(true);
     console.log("creating world");
-    const CID = await uploadWeb3(
+    const CID = await uploadFile(
       await makeFileObjects({ cubes: [], items: [] })
     );
+    // const CID = await uploadWeb3(
+    //   await makeFileObjects({ cubes: [], items: [] })
+    // );
 
     const txb = new TransactionBlock();
 

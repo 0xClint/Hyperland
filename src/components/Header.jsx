@@ -6,7 +6,7 @@ import Loader from "./Loader";
 import { TransactionBlock } from "@mysten/sui.js/transactions";
 import { useSignAndExecuteTransactionBlock } from "@mysten/dapp-kit";
 import { CONTRACT_ADDRESS } from "../utils/constants";
-import { makeFileObjects, uploadWeb3 } from "../utils/web3Storage";
+import { makeFileObjects, uploadFile } from "../utils/lightouse";
 
 const Header = ({ isHome }) => {
   const [loader, setLoader] = useState(false);
@@ -51,7 +51,7 @@ const Header = ({ isHome }) => {
       cubes,
       items,
     };
-    const CID = await uploadWeb3(await makeFileObjects(objData));
+    const CID = await uploadFile(await makeFileObjects(objData));
     console.log("CID : " + CID);
     txb.moveCall({
       target: `${CONTRACT_ADDRESS}::game::mint_to_sender`,
@@ -76,10 +76,10 @@ const Header = ({ isHome }) => {
       }
     );
   };
-  console.log(
-    NFTData,
-    (parseInt(worldData[0]?.content?.fields.name) + 1).toString()
-  );
+  // console.log(
+  //   NFTData,
+  //   (parseInt(worldData[0]?.content?.fields.name) + 1).toString()
+  // );
   return (
     <div className="absolute z-10 top-0 w-screen flex flex-col">
       <div className="w-full flex text-[2rem] justify-between items-center h-16 px-5 ">
