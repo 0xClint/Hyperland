@@ -83,11 +83,13 @@ const Game = () => {
   useEffect(() => {
     const fetchData = async () => {
       // const data = await retrieveData(params.id);
-      const res = await axios.get(
-        `https://ipfs.io/ipfs/${params.id}/world.json`
-      );
-      console.log(res.data);
-      setData(res.data);
+      try {
+        const res = await axios.get(
+          `https://ipfs.io/ipfs/${params.id}/world.json`
+        );
+        console.log(res.data);
+        setData(res.data);
+      } catch (error) {}
     };
     fetchData();
   }, []);

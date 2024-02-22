@@ -56,6 +56,7 @@ const Home = () => {
       {
         onError: (err) => {
           console.log(err);
+          navigate(`/land/456732eftgh46567ghsgbhnrfvh`);
         },
         onSuccess: (result) => {
           console.log(result);

@@ -68,6 +68,7 @@ const Header = ({ isHome }) => {
       {
         onError: (err) => {
           console.log(err);
+          setLoader(false);
         },
         onSuccess: (result) => {
           console.log(result);
